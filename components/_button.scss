@@ -1,0 +1,30 @@
+$button-color: black;
+$button-font-size: 13px;
+$button-height: 20px;
+$button-padding: 0 15px;
+
+button {
+    /* TODO active state */
+    padding: $button-padding;
+    height: $button-height;
+    border: 1px solid #5d5d5d;
+    border-radius: $button-height / 2;
+    background-image: linear-gradient(to bottom, #f9f9f9, #eceded 8px, #dadada 8px, #ffffff);
+    box-shadow: 0 1px 2px #5d5d5d;
+    color: $button-color;
+    font-size: $button-font-size;
+    cursor: default;
+
+    &.mod-cta {
+        /* TODO animation */
+        border-top-color: #272998;
+        background-image: linear-gradient(to bottom, #c5d3ec, #93bfec 8px, #68a9ec 8px, #aaf5ff);
+        color: $button-color;
+    }
+
+    .setting-item-control & {
+        padding: $button-padding;
+        color: $button-color;
+        font-size: $button-font-size;
+    }
+}
