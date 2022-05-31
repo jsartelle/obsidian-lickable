@@ -1,0 +1,24 @@
+$titlebar-font-size: 14px;
+$titlebar-gradient: linear-gradient(to bottom, #f9f9f9, #efefef 2px, #e7e8e8 3px, #c3c3c3 27px, #8c8c8c 28px, transparent 28px);
+$titlebar-height: 28px;
+
+body {
+    padding-top: $titlebar-height !important;
+}
+
+.titlebar {
+    height: $titlebar-height !important;
+    background-image: $titlebar-gradient;
+}
+
+.titlebar-text {
+    letter-spacing: normal;
+    font-size: $titlebar-font-size;
+    line-height: $titlebar-height;
+    opacity: 1;
+}
+
+.titlebar-button-container {
+    top: 0;
+    height: $titlebar-height;
+}

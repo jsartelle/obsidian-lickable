@@ -1,15 +1,15 @@
+@use 'window';
+
 $close-button-size: 13px;
-$modal-padding-top: 22px;
 
 .modal {
-    /* TODO reuse styles for actual title bar */
-    padding-top: $modal-padding-top;
+    padding-top: window.$titlebar-height;
     border: 1px solid #c0c0c0;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    background-image: linear-gradient(to bottom, #f9f9f9, #efefef 2px, #e7e8e8 3px, #c3c3c3 21px, #8c8c8c 22px, transparent 22px), repeating-linear-gradient(to bottom, #ebecec, #ebecec 2px, #eff0f0 2px, #eff0f0 4px);
+    background-image: window.$titlebar-gradient, repeating-linear-gradient(to bottom, #ebecec, #ebecec 2px, #eff0f0 2px, #eff0f0 4px);
     box-shadow: 0 10px 25px #505050;
 
     &::before {
@@ -17,20 +17,20 @@ $modal-padding-top: 22px;
         top: 0;
         left: 50%;
         content: 'Obsidian';
-        font-size: 13px;
-        line-height: $modal-padding-top;
+        font-size: window.$titlebar-font-size;
+        line-height: window.$titlebar-height;
         transform: translateX(-50%);
     }
 
     &.mod-settings {
-        padding-top: $modal-padding-top;
+        padding-top: window.$titlebar-height;
     }
 }
 
 .modal-close-button {    
     /* TODO gloss */
     /* TODO active state */
-    top: 4px;
+    top: 7px;
     left: 8px;
     width: $close-button-size;
     height: $close-button-size;
