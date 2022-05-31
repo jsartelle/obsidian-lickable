@@ -8,5 +8,10 @@ body {
 
 .theme-light, .theme-dark {
     --background-modifier-cover: transparent;
+    --text-accent: #004cff;
     --text-on-accent: black;
+}
+
+.cm-s-obsidian span.cm-url {
+    color: var(--text-accent);
 }
