@@ -1,6 +1,6 @@
 $titlebar-font-size: 14px;
 $titlebar-gradient: linear-gradient(to bottom, #f9f9f9, #efefef 2px, #e7e8e8 3px, #c3c3c3 27px, #8c8c8c 28px, transparent 28px);
-$titlebar-height: 28px;
+$titlebar-height: 28px; // needs to be this tall for the window controls to line up
 
 body:not(.is-fullscreen) {
     padding-top: $titlebar-height !important;
