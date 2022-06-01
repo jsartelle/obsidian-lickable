@@ -1,1 +1,1 @@
-Mac OS X 10.3-style Aqua theme for [Obsidian](https://obsidian.md)
+Mac OS X 10.3-style Aqua theme for [Obsidian](https://obsidian.md), recreated by hand.

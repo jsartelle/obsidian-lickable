@@ -1,0 +1,26 @@
+@use 'sass:list';
+@use 'button';
+@use 'common';
+
+$cap-width: 20px;
+
+.dropdown {
+    /* TODO arrows */
+    $black: linear-gradient(black, black);
+    padding: button.$padding;
+    padding-right: nth(button.$padding, 2) + $cap-width;
+    height: button.$height;
+    border: button.$border;
+    border-radius: 5px;
+    background:
+    $black top right list.slash($cap-width - 1, 1px) no-repeat,
+    button.$bg-primary right/$cap-width no-repeat,
+    button.$bg;
+    box-shadow: button.$shadow;
+    font-size: button.$font-size;
+    background-blend-mode: overlay, normal, normal;
+
+    &:focus {
+        box-shadow: button.$shadow, common.$focus-shadow;
+    }
+}

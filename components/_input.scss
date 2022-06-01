@@ -1,21 +1,23 @@
-$textinput-height: 24px;
+@use 'common';
+
+$height: 24px;
+$inset-shadow: inset 0 1px 2px #777777;
 
 input[type='text'] {
-    $textinput-inset-shadow: inset 0 1px 2px #777777;
     padding: 0 5px;
-    height: $textinput-height;
+    height: $height;
     border-radius: 0;
-    box-shadow: $textinput-inset-shadow;
+    box-shadow: $inset-shadow;
 
     &:focus {
-        box-shadow: $textinput-inset-shadow, 0 0 3px 2px var(--interactive-accent);
+        box-shadow: $inset-shadow, common.$focus-shadow;
     }
 }
 
 %search-input {
     /* TODO magnifying glass icon */
-    padding: 0 $textinput-height / 2;
-    border-radius: $textinput-height / 2;
+    padding: 0 $height / 2;
+    border-radius: $height / 2;
 }
 .search-input-container input, .hotkey-search-container input {
     @extend %search-input;
