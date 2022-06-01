@@ -1,6 +1,6 @@
 @use 'window';
 
-$close-button-size: 13px;
+$close-button-size: 12px * (4/3); // scale up to match larger title bar
 
 .modal {
     padding-top: window.$titlebar-height;
@@ -28,16 +28,16 @@ $close-button-size: 13px;
 }
 
 .modal-close-button {    
-    /* TODO gloss */
     /* TODO active state */
-    top: 7px;
+    top: 5px;
     left: 8px;
     width: $close-button-size;
     height: $close-button-size;
-    border: 1px solid rgba(20, 20, 20, 0.5);
+    border: 1px solid #141414;
     border-radius: $close-button-size / 2;
-    background-color: #FE5F57;
-    box-shadow: 0 1px 2px #ffffff;
+    background-color: #d80118;
+    background-image: radial-gradient(ellipse 60% 30% at center top, white, #ffffffcc, transparent), radial-gradient(ellipse 70% 70% at center bottom, #ffffffaa, #ffffff7f, transparent);
+    box-shadow: 0 1px 1px #ffffff;
     cursor: default;
 
     &::before {
@@ -46,12 +46,12 @@ $close-button-size: 13px;
 
     &:hover::before {
         position: absolute;
-        top: -1px;
-        left: 0.5px;
+        left: 50%;
         color: rgba(0, 0, 0, 0.5);
         content: '\D7';
         font-size: 12px;
         line-height: 1;
+        transform: translateX(-50%);
     }
 }
 
