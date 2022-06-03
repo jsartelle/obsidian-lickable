@@ -8,7 +8,7 @@ $padding: 0 15px;
 button {
     /* TODO active state */
     padding: $padding;
-    height: $height;
+    min-height: $height;
     border-radius: math.div($height, 2);
     background-image: widget.$bg;
     box-shadow: widget.$inset-shadow, widget.$shadow;
