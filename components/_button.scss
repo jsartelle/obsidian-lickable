@@ -2,7 +2,7 @@
 @use 'widget';
 
 $font-size: 13px;
-$height: 20px;
+$height: 21px;
 $padding: 0 15px;
 
 button {
@@ -17,19 +17,15 @@ button {
     cursor: default;
 
     &:focus {
-        box-shadow: widget.$shadow, widget.$focus-shadow;
+        box-shadow: widget.$inset-shadow, widget.$shadow, widget.$focus-shadow;
     }
 
     &.mod-cta {
         /* TODO animation */
-        border-top-color: #272998;
         background-image: widget.$bg-primary;
-        color: widget.$color;
     }
 
     .setting-item-control & {
-        padding: $padding;
-        color: widget.$color;
-        font-size: $font-size;
+        @extend button;
     }
 }
