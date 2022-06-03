@@ -23,3 +23,13 @@ $size: 14px;
         content: none;
     }
 }
+
+.task-list-item-checkbox {
+    @extend .checkbox-container;
+    filter: none;
+    appearance: none;
+
+    &:checked {
+        @extend .is-enabled;
+    }
+}
