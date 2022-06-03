@@ -1,0 +1,35 @@
+@use 'widget';
+
+$size: 15px;
+$thumb-colors: #0032af 1px, #74a5df 2px, #8ab6e9 5px, #4e94e4 6px, #9ae1ff 11px, #94d5ff 12px;
+$track-colors: #b8b8b8, #fcfdfc 80%, #efefef;
+$track-overlay: radial-gradient(circle at center, #0000003f, transparent);
+
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+}
+
+body:not(.native-scrollbars) ::-webkit-scrollbar-track {
+    background-image: linear-gradient(to right, $track-colors);
+
+    &:horizontal {
+        background-image: linear-gradient(to bottom, $track-colors);
+    }
+}
+
+body:not(.native-scrollbars) ::-webkit-scrollbar-thumb {
+    /* TODO active state */
+    border: 1px solid transparent;
+    background-image: $track-overlay, linear-gradient(to right, $thumb-colors);
+    background-attachment: fixed, scroll;
+    background-clip: content-box;
+    background-size: 16px 16px, auto;
+    background-repeat: repeat, no-repeat;
+    box-shadow: widget.$inset-shadow;
+    background-blend-mode: overlay, normal;
+
+    &:horizontal {
+        background-image: $track-overlay, linear-gradient(to bottom, $thumb-colors);
+    }
+}
