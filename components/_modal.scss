@@ -4,14 +4,23 @@
 
 $close-button-size: 14px;
 
-.modal {
+@mixin modal-titlebar($title: none) {
     padding-top: window.$titlebar-height;
+    background-image: window.$titlebar-gradient, repeating-linear-gradient(to bottom, #ebecec, #ebecec 2px, #eff0f0 2px, #eff0f0 4px);
+
+    &::before {
+        content: $title;
+    }
+}
+
+.modal {
+    @include modal-titlebar();
+
     border: 1px solid #c0c0c0;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    background-image: window.$titlebar-gradient, repeating-linear-gradient(to bottom, #ebecec, #ebecec 2px, #eff0f0 2px, #eff0f0 4px);
     box-shadow: 0 10px 25px #505050;
 
     &::before {
@@ -19,14 +28,54 @@ $close-button-size: 14px;
         top: 0;
         left: 50%;
         color: widget.$color;
-        content: 'Obsidian';
         font-size: window.$titlebar-font-size;
         line-height: window.$titlebar-height;
         transform: translateX(-50%);
     }
 
     &.mod-settings {
-        padding-top: window.$titlebar-height;
+        @include modal-titlebar('Settings');
+
+        .vertical-tab-header {
+            padding-top: 0;
+        }
+
+        .vertical-tab-content-container {
+            padding-top: 0;
+
+            .vertical-tab-content {
+                /* TODO bottom still getting cut off a bit */
+                padding-top: 35px;
+            }
+        }
+    }
+
+    &.mod-community-theme {
+        @include modal-titlebar('Themes');
+        padding-bottom: 0;
+
+        .modal-content {
+            margin-top: 0;
+            padding-top: 18px;
+        }
+    }
+
+    &.mod-community-plugin {
+        @include modal-titlebar('Community Plugins');
+
+        .community-plugin-search, .community-plugin-info {
+            padding-top: 18px;
+        }
+    }
+
+    &:not(.mod-community-theme) .modal-title {
+        position: relative;
+        top: -1 * window.$titlebar-height;
+        color: widget.$color;
+        text-transform: capitalize;
+        font-weight: normal;
+        font-size: window.$titlebar-font-size;
+        line-height: window.$titlebar-height;
     }
 }
 
@@ -46,6 +95,7 @@ $close-button-size: 14px;
     height: $close-button-size;
     border-radius: math.div($close-button-size, 2);
     background-color: #d80118;
+    /* TODO improve close button appearance */
     background-image: radial-gradient(ellipse 60% 30% at center top, white, #ffffffcc, transparent), radial-gradient(ellipse 70% 70% at center bottom, #ffffffaa, #ffffff7f, transparent);
     box-shadow: widget.$inset-shadow, 0 1px 1px #ffffff;
     cursor: default;
@@ -55,6 +105,7 @@ $close-button-size: 14px;
     }
 
     &:hover::before {
+        /* TODO improve X appearance */
         position: absolute;
         left: 50%;
         color: rgba(0, 0, 0, 0.5);
