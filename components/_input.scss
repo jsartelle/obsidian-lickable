@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'widget';
 
 $height: 24px;
@@ -16,8 +17,8 @@ input[type='text'] {
 
 %search-input {
     /* TODO magnifying glass icon */
-    padding: 0 $height / 2;
-    border-radius: $height / 2;
+    padding: 0 math.div($height, 2);
+    border-radius: math.div($height, 2);
 }
 .search-input-container input, .hotkey-search-container input {
     @extend %search-input;

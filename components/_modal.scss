@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'widget';
 @use 'window';
 
@@ -43,7 +44,7 @@ $close-button-size: 14px;
     left: 8px;
     width: $close-button-size;
     height: $close-button-size;
-    border-radius: $close-button-size / 2;
+    border-radius: math.div($close-button-size, 2);
     background-color: #d80118;
     background-image: radial-gradient(ellipse 60% 30% at center top, white, #ffffffcc, transparent), radial-gradient(ellipse 70% 70% at center bottom, #ffffffaa, #ffffff7f, transparent);
     box-shadow: widget.$inset-shadow, 0 1px 1px #ffffff;
