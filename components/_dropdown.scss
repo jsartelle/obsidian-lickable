@@ -1,6 +1,6 @@
 @use 'sass:list';
 @use 'button';
-@use 'common';
+@use 'widget';
 
 $cap-width: 20px;
 
@@ -10,17 +10,17 @@ $cap-width: 20px;
     padding: button.$padding;
     padding-right: nth(button.$padding, 2) + $cap-width;
     height: button.$height;
-    border: button.$border;
+    border: none;
     border-radius: 5px;
     background:
     $black top right list.slash($cap-width - 1, 1px) no-repeat,
-    button.$bg-primary right/$cap-width no-repeat,
-    button.$bg;
-    box-shadow: button.$shadow;
+    widget.$bg-primary right/$cap-width no-repeat,
+    widget.$bg;
+    box-shadow: widget.$inset-shadow, widget.$shadow;
     font-size: button.$font-size;
     background-blend-mode: overlay, normal, normal;
 
     &:focus {
-        box-shadow: button.$shadow, common.$focus-shadow;
+        box-shadow: widget.$inset-shadow, widget.$shadow, widget.$focus-shadow;
     }
 }

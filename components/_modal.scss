@@ -1,6 +1,7 @@
+@use 'widget';
 @use 'window';
 
-$close-button-size: 12px * (4/3); // scale up to match larger title bar
+$close-button-size: 14px;
 
 .modal {
     padding-top: window.$titlebar-height;
@@ -16,6 +17,7 @@ $close-button-size: 12px * (4/3); // scale up to match larger title bar
         position: absolute;
         top: 0;
         left: 50%;
+        color: widget.$color;
         content: 'Obsidian';
         font-size: window.$titlebar-font-size;
         line-height: window.$titlebar-height;
@@ -27,17 +29,24 @@ $close-button-size: 12px * (4/3); // scale up to match larger title bar
     }
 }
 
+.horizontal-tab-header, .vertical-tab-header {
+    background-image: repeating-linear-gradient(to bottom, #f7f7f7, #f7f7f7 2px, #f4f4f4 2px, #f4f4f4 4px);
+}
+
+.horizontal-tab-content, .vertical-tab-content {
+    background-color: transparent;
+}
+
 .modal-close-button {    
     /* TODO active state */
-    top: 5px;
+    top: 6px;
     left: 8px;
     width: $close-button-size;
     height: $close-button-size;
-    border: 1px solid #141414;
     border-radius: $close-button-size / 2;
     background-color: #d80118;
     background-image: radial-gradient(ellipse 60% 30% at center top, white, #ffffffcc, transparent), radial-gradient(ellipse 70% 70% at center bottom, #ffffffaa, #ffffff7f, transparent);
-    box-shadow: 0 1px 1px #ffffff;
+    box-shadow: widget.$inset-shadow, 0 1px 1px #ffffff;
     cursor: default;
 
     &::before {
@@ -55,10 +64,4 @@ $close-button-size: 12px * (4/3); // scale up to match larger title bar
     }
 }
 
-.horizontal-tab-header, .vertical-tab-header {
-    background-image: repeating-linear-gradient(to bottom, #f7f7f7, #f7f7f7 2px, #f4f4f4 2px, #f4f4f4 4px);
-}
-
-.horizontal-tab-content, .vertical-tab-content {
-    background-color: transparent;
-}
+/* TODO disabled max/min buttons */
