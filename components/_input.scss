@@ -15,13 +15,9 @@ input[type='text'] {
     }
 }
 
-%search-input {
-    /* TODO magnifying glass icon */
+.search-input-container input, .hotkey-search-container input {
     padding: 0 math.div($height, 2);
     border-radius: math.div($height, 2);
-}
-.search-input-container input, .hotkey-search-container input {
-    @extend %search-input;
 }
 
 .hotkey-search-container {
