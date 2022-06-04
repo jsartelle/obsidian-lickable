@@ -9,7 +9,6 @@ $cap-width: 20px;
     $black: linear-gradient(black, black);
     padding: button.$padding;
     padding-right: nth(button.$padding, 2) + $cap-width;
-    height: button.$height;
     border: none;
     border-radius: 5px;
     background:
