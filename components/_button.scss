@@ -4,7 +4,7 @@
 $font-size: 13px;
 $padding: 3px 15px;
 
-button {
+@mixin button {
     /* TODO active state */
     padding: $padding;
     border-radius: 10px;
@@ -13,6 +13,10 @@ button {
     color: widget.$color;
     font-size: $font-size;
     cursor: default;
+}
+
+button {
+    @include button;
 
     &:focus {
         box-shadow: widget.$inset-shadow, widget.$shadow, widget.$focus-shadow;
@@ -20,10 +24,21 @@ button {
 
     &.mod-cta {
         /* TODO animation */
+        @include button;
         background-image: widget.$bg-primary;
     }
 
     .setting-item-control & {
-        @extend button;
+        @include button;
+    }
+
+    .community-theme &.mod-cta {
+        /* button styles must be isolated to correctly override this */
+        @include button;
+    }
+
+    .community-theme.is-selected & {
+        @include button;
+        opacity: 50%;
     }
 }

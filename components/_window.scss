@@ -1,6 +1,23 @@
+@use 'sass:color';
+
+/* #region Exports */
 $titlebar-font-size: 14px;
-$titlebar-gradient: linear-gradient(to bottom, #f9f9f9, #efefef 2px, #e7e8e8 3px, #c3c3c3 27px, #8c8c8c 28px, transparent 28px);
+$titlebar-gradient: linear-gradient(to bottom,
+    #f9f9f9,
+    #efefef 2px,
+    #e7e8e8 3px,
+    #c3c3c3 27px,
+    #8c8c8c 28px,
+    transparent 28px);
+$titlebar-gradient-dark: linear-gradient(to bottom,
+    color.adjust(#f9f9f9, $lightness: -75%),
+    color.adjust(#efefef, $lightness: -75%) 2px,
+    color.adjust(#e7e8e8, $lightness: -75%) 3px,
+    color.adjust(#c3c3c3, $lightness: -75%) 27px,
+    color.adjust(#8c8c8c, $lightness: -75%) 28px,
+    transparent 28px);
 $titlebar-height: 28px; // needs to be this tall for the window controls to line up
+/* #endregion */
 
 body:not(.is-fullscreen) {
     padding-top: $titlebar-height !important;
@@ -9,6 +26,10 @@ body:not(.is-fullscreen) {
 .titlebar {
     height: $titlebar-height !important;
     background-image: $titlebar-gradient;
+
+    .theme-dark & {
+        background-image: $titlebar-gradient-dark;
+    }
 }
 
 .titlebar-text {

@@ -16,6 +16,7 @@ $cap-width: 20px;
     widget.$bg-primary right/$cap-width no-repeat,
     widget.$bg;
     box-shadow: widget.$inset-shadow, widget.$shadow;
+    color: widget.$color;
     font-size: button.$font-size;
     background-blend-mode: overlay, normal, normal;
 

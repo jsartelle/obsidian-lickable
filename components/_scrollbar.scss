@@ -1,8 +1,13 @@
+@use 'sass:color';
 @use 'widget';
 
 $size: 15px;
 $thumb-colors: #0032af 1px, #74a5df 2px, #8ab6e9 5px, #4e94e4 6px, #9ae1ff 11px, #94d5ff 12px;
 $track-colors: #b8b8b8, #fcfdfc 80%, #efefef;
+$track-colors-dark:
+    color.adjust(#b8b8b8, $lightness: -80%),
+    color.adjust(#fcfcfc, $lightness: -80%) 80%,
+    color.adjust(#efefef, $lightness: -80%);
 $track-overlay: radial-gradient(circle at center, #0000003f, transparent);
 
 body:not(.native-scrollbars) ::-webkit-scrollbar {
@@ -15,6 +20,14 @@ body:not(.native-scrollbars) ::-webkit-scrollbar-track {
 
     &:horizontal {
         background-image: linear-gradient(to bottom, $track-colors);
+    }
+}
+
+body.theme-dark:not(.native-scrollbars) ::-webkit-scrollbar-track {
+    background-image: linear-gradient(to right, $track-colors-dark);
+
+    &:horizontal {
+        background-image: linear-gradient(to bottom, $track-colors-dark);
     }
 }
 

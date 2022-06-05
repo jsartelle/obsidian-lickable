@@ -1,6 +1,7 @@
 $bg: linear-gradient(to bottom, #f9f9f9, #eceded 44%, #dadada 44%, #ffffff);
 $bg-primary: linear-gradient(to bottom, #c5d3ec, #93bfec 44%, #68a9ec 44%, #aaf5ff);
 $color: black;
-$focus-shadow: 0 0 3px 2px var(--interactive-accent);
+$focus-shadow-color: #86b9dd;
+$focus-shadow: 0 0 3px 2px $focus-shadow-color;
 $inset-shadow: inset 0 0 1px 1px #0000006F;
 $shadow: 0 2px 3px -1px #b0b0b0;

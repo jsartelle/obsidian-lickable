@@ -12,11 +12,13 @@ body {
 
 .theme-light, .theme-dark {
     --background-modifier-cover: transparent;
-    --interactive-accent: #86b9dd;
-    --text-accent: #004cff;
+}
+
+.theme-light {
+    --text-accent: #0068da;
     --text-on-accent: black;
 }
 
-.cm-s-obsidian span.cm-url {
-    color: var(--text-accent);
+.theme-dark {
+    --text-accent: #419cff;
 }

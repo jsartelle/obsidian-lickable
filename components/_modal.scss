@@ -1,33 +1,61 @@
+@use 'sass:color';
 @use 'sass:math';
 @use 'widget';
 @use 'window';
 
+/* #region Exports */
+$border-color: #c0c0c0;
 $close-button-size: 14px;
+$pinstripes: repeating-linear-gradient(to bottom,
+    #ebecec,
+    #ebecec 2px,
+    #eff0f0 2px,
+    #eff0f0 4px);
+$pinstripes-alt: repeating-linear-gradient(to bottom,
+    color.adjust(#ebecec, $lightness: 5%),
+    color.adjust(#ebecec, $lightness: 5%) 2px,
+    color.adjust(#eff0f0, $lightness: 5%) 2px,
+    color.adjust(#eff0f0, $lightness: 5%) 4px);
+$pinstripes-dark: repeating-linear-gradient(to bottom,
+    color.invert(#ebecec),
+    color.invert(#ebecec) 2px,
+    color.invert(#eff0f0) 2px,
+    color.invert(#eff0f0) 4px);
+$pinstripes-alt-dark: repeating-linear-gradient(to bottom,
+    color.adjust(color.invert(#ebecec), $lightness: 5%),
+    color.adjust(color.invert(#ebecec), $lightness: 5%) 2px,
+    color.adjust(color.invert(#eff0f0), $lightness: 5%) 2px,
+    color.adjust(color.invert(#eff0f0), $lightness: 5%) 4px);
+/* #endregion */
 
 @mixin modal-titlebar($title: none) {
     padding-top: window.$titlebar-height;
-    background-image: window.$titlebar-gradient, repeating-linear-gradient(to bottom, #ebecec, #ebecec 2px, #eff0f0 2px, #eff0f0 4px);
+    background-image: window.$titlebar-gradient, $pinstripes;
 
     &::before {
         content: $title;
+    }
+
+    .theme-dark & {
+        background-image: window.$titlebar-gradient-dark, $pinstripes-dark;
     }
 }
 
 .modal {
     @include modal-titlebar();
 
-    border: 1px solid #c0c0c0;
+    border: 1px solid $border-color;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    box-shadow: 0 10px 25px #505050;
+    box-shadow: 0 10px 25px #000000aa;
 
     &::before {
         position: absolute;
         top: 0;
         left: 50%;
-        color: widget.$color;
+        color: var(--text-on-accent);
         font-size: window.$titlebar-font-size;
         line-height: window.$titlebar-height;
         transform: translateX(-50%);
@@ -71,16 +99,24 @@ $close-button-size: 14px;
     &:not(.mod-community-theme) .modal-title {
         position: relative;
         top: -1 * window.$titlebar-height;
-        color: widget.$color;
+        color: var(--text-on-accent);
         text-transform: capitalize;
         font-weight: normal;
         font-size: window.$titlebar-font-size;
         line-height: window.$titlebar-height;
     }
+
+    .theme-dark & {
+        border: 1px solid color.invert($border-color);
+    }
 }
 
 .horizontal-tab-header, .vertical-tab-header {
-    background-image: repeating-linear-gradient(to bottom, #f7f7f7, #f7f7f7 2px, #f4f4f4 2px, #f4f4f4 4px);
+    background-image: $pinstripes-alt;
+
+    .theme-dark & {
+        background-image: $pinstripes-alt-dark;
+    }
 }
 
 .horizontal-tab-content, .vertical-tab-content {
@@ -108,11 +144,15 @@ $close-button-size: 14px;
         /* TODO improve X appearance */
         position: absolute;
         left: 50%;
-        color: rgba(0, 0, 0, 0.5);
+        color: #0000007f;
         content: '\D7';
         font-size: 12px;
         line-height: 1;
         transform: translateX(-50%);
+    }
+
+    .theme-dark & {
+        box-shadow: widget.$inset-shadow, 0 1px 1px #7f7f7f;
     }
 }
 
